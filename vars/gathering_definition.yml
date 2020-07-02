@@ -1,0 +1,22 @@
+---
+command:
+  - cat /etc/redhat-release
+  - cat /etc/selinux/config
+  - getenforce
+# for RHEL6
+  - service iptables status
+# for RHEL7
+  - systemctl status firewalld
+  - rpm -qa
+  - yum repolist
+  - ls -l /etc/yum.repos.d/*.repo
+  - cat /etc/yum.repos.d/*.repo
+  - cat /mnt/media.repo
+  - ls -l /etc/zabbix/zabbix_agentd.conf
+  - ls -l /etc/logrotate.d/zabbix-agent
+  - ls -l /var/run/zabbix/*agent*
+  - ls -l /var/log/zabbix/*agent*
+  - tail -n 100 /var/log/zabbix/zabbix_agentd.log
+  - ls -l /tmp
+  - ls -l /root
+

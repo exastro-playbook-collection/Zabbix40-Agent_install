@@ -1,0 +1,15 @@
+###  vars file for ansible-zabbix-agent
+
+# target server temporary path
+   VAR_Zabbix40AG_DestPathName: /tmp/zabbix_agent
+
+# setting name for repo pkg
+   VAR_Zabbix40AG_RepoPKG_el6: zabbix-release-4.0-1.el6.noarch.rpm
+   VAR_Zabbix40AG_RepoPKG_el7: zabbix-release-4.0-1.el7.noarch.rpm
+
+# setting name for Zabbix-Agent pkg
+
+   VAR_Zabbix40AG_PKGlist:
+     - zabbix-agent
+     - zabbix-sender
+     - zabbix-get

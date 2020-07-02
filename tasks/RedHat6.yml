@@ -1,0 +1,19 @@
+---
+# 管理対象マシンにZabbix40-Agentをインストール
+
+  - name: file make dir
+    file: "dest={{ VAR_Zabbix40AG_DestPathName }} mode=644 owner=root group=root state=directory"
+
+  - name: copy Repo pkg rpm file for Zabbix
+    copy: src=./{{ VAR_Zabbix40AG_RepoPKG_el6 }} dest={{ VAR_Zabbix40AG_DestPathName }}/{{ VAR_Zabbix40AG_RepoPKG_el6 }} mode=0666
+
+  - name: install Zabbix Repo pkg
+    yum: name={{ VAR_Zabbix40AG_DestPathName }}/{{ VAR_Zabbix40AG_RepoPKG_el6 }} state=present
+
+  - name: delete zabbix_wk dir
+    file: path={{ VAR_Zabbix40AG_DestPathName }} state=absent
+
+  - name: install Zabbix_Agent
+    yum: name={{ item }} state=present
+    with_items: "{{ VAR_Zabbix40AG_PKGlist }}"
+
